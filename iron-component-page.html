@@ -339,9 +339,11 @@ documentation page including demos (if available).
       var descriptor = this._analyzer.elementsByTagName[name];
       if (descriptor) return descriptor;
 
-      for (var i = 0; i < this._analyzer.behaviors.length; i++) {
-        if (this._analyzer.behaviors[i].is === name) {
-          return this._analyzer.behaviors[i];
+      if (this._analyzer.behaviors) {
+        for (var i = 0; i < this._analyzer.behaviors.length; i++) {
+          if (this._analyzer.behaviors[i].is === name) {
+            return this._analyzer.behaviors[i];
+          }
         }
       }
       return null;
